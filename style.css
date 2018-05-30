@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#moviebox {
+    border: 1pt solid #F75A96;
+    height: 400px;
+    width: 500px;
+    display: flex;
+}
+
+p {
+    font-family: 'Average', serif;
+}
+
+h1 {
+    font-family: 'Fjalla One', sans-serif;
+}
+

@@ -4,10 +4,13 @@ const movieList = {
   template: `
   <h1>Name</h1>
   <input type="text" placeholder="search">
-    <section ng-repeat="movie in $ctrl.movies.$$state.value.data.results">
-     <p> {{movie.title}} </p>
+    <section id="moviebox" ng-repeat="movie in $ctrl.movies.$$state.value.data.results">
+    <img ng-src=" https://image.tmdb.org/t/p/w185/{{movie.poster_path}}"> 
+    <div class="movieinfo">
+    <h1> {{movie.title}} </h1>
      <p> {{movie.overview}} </p>
-     <img ng-src=" https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+     </div>
+     
 
     </section>
 
