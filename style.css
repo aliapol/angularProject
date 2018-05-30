@@ -3,10 +3,16 @@ body {
     color: white;
 }
 
+#movielist {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
 #moviebox {
     border: 1pt solid #F75A96;
-    height: 400px;
-    width: 500px;
+    width: 30%;
     display: flex;
 }
 
@@ -16,5 +22,14 @@ p {
 
 h1 {
     font-family: 'Fjalla One', sans-serif;
+}
+
+.poster {
+    width: 50%;
+    height: 400px;
+}
+
+.movieinfo {
+    width: 50%;
 }
 
