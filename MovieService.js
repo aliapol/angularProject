@@ -8,6 +8,7 @@ console.log("hi")
   function MovieService ($http) {
     let ourData= {};
     let searchTest = {};
+    let genre = {};
 
 
     const getData = () => {
@@ -37,12 +38,29 @@ console.log("hi")
         console.log(error);
       }); 
     } 
+
+    const getGenre = () => {
+      return $http ({
+        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US',
+        method: 'GET',
+      }).then((response) => {
+        genre = response;
+        console.log(genre.data.genres)
+      });
+
+
+      }
+
+
+    
       getData();
       getSearch();
+      getGenre();
 
       return {
         getData,
-        getSearch
+        getSearch,
+        getGenre
         
       };
       console.log(searchTest);
@@ -50,3 +68,6 @@ console.log("hi")
 
   }
   angular.module("app").factory("MovieService", ["$http", MovieService]);
+
+  //search
+  // two api calls, search genre, take id and put in movie search
