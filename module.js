@@ -8,5 +8,5 @@ angular
   })
   .when("/watchlistpage", {
     template: "<watchlist-page></watchlist-page>"
-  });
+  }).otherwise({redirectTo: "/movielist"});
 });
