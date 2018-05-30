@@ -1,7 +1,6 @@
 "use strict";
 
 let api_key = config.api_key;
-console.log(api_key)
 
 
   function MovieService ($http) {
