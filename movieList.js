@@ -3,7 +3,7 @@
 const movieList = {
   template: `
   <h1>Name</h1>
-  <input type="text" placeholder="search">
+    <search-criteria></search-criteria>
     <section id="moviebox" ng-repeat="movie in $ctrl.movies.$$state.value.data.results">
     <img ng-src=" https://image.tmdb.org/t/p/w185/{{movie.poster_path}}"> 
     <div class="movieinfo">

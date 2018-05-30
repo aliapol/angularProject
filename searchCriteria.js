@@ -2,6 +2,7 @@
 
 const searchCriteria = {
   template: `
+  <input type="text" placeholder="search">
   `,
   controller: ["MovieService", function(MovieService) {
     const vm = this;
