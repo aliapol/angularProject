@@ -11,7 +11,6 @@ console.log("hi")
 
 
     const getData = () => {
-      console.log("get data");
       return $http ({
         url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&language=en-US&page=1',
         method: 'GET',
@@ -25,24 +24,25 @@ console.log("hi")
       });
     }
 
-    /*const getSearch = () => {
-      console.log("get data");
+    const getSearch = () => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/search/company?api_key=' + api_key + '&query=old%20school&page=1',
+        url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&language=en-US&query=drama&page=1&include_adult=false',
         method: 'GET',
       }).then((response) => {
-        ourData = response;
+        searchTest = response;
         console.log(searchTest);
 
         return response;
       }).catch((error) => {
         console.log(error);
       }); 
-    } */
+    } 
       getData();
+      getSearch();
 
       return {
-        getData
+        getData,
+        getSearch
         
       };
       console.log(searchTest);

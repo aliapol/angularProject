@@ -7,14 +7,23 @@ const movieList = {
     <section ng-repeat="movie in $ctrl.movies">
      <p> {{movie}} </p>
     </section>
+
+    <section ng-repeat="search in $ctrl.searches>
+
+    </section>
   `,
   controller: ["MovieService", function(MovieService) {
     const vm = this;
     vm.movies = [];
+    vm.searches = [];
 
 
     MovieService.getData().then((response) => {
       vm.movies.push(response.data.results);
+    });
+
+    MovieService.getSearch().then((response) => {
+      vm.movies.push(response.data);
     });
   }]
   
