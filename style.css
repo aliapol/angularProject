@@ -11,11 +11,24 @@ body {
 }
 
 #moviebox {
-    border: 1pt solid #F75A96;
+    border: 2pt solid #F75A96;
     width: 30%;
     display: flex;
     position: relative;
-    
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+/* Using a formula (an + b). a represents a cycle size, n is a counter (starts at 0), and b is an offset value.*/
+#moviebox:nth-of-type(4n+2) {
+    border: 2pt solid #ADCE9E;
+}
+
+#moviebox:nth-of-type(4n+3) {
+    border: 2pt solid #FFCA93;
+}
+
+#moviebox:nth-of-type(4n+4) {
+    border: 2pt solid #6FD1F2;
 }
 
 p {
@@ -49,4 +62,6 @@ h1 {
     
 }
 
-
+button {
+    background-color: white;
+}
