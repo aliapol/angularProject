@@ -9,6 +9,7 @@ console.log("hi")
     let ourData= {};
     let searchTest = {};
     let genre = {};
+    let genreID; 
 
 
     const getData = () => {
@@ -40,15 +41,14 @@ console.log("hi")
     } 
 
     const convertUserInput = (genre) => {
-      console.log(genre)
       return $http ({
-        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US',
+        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key='+ api_key +'&language=en-US',
         method: 'GET',
       }).then((response) => {
         let genreList = response.data.genres;
         for(let i = 0; i < genreList.length; i++) {
           if (genre === genreList[i].name) {
-            console.log(genreList[i].id)
+            genreID = genreList[i].id;
           }
 
         }
@@ -57,16 +57,14 @@ console.log("hi")
 
     const genreSearch = () => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US',
+        url: 'https://api.themoviedb.org/3/genre/'+ genreID +'/movies?api_key='+ api_key +'&language=en-US&include_adult=false&sort_by=created_at.asc',
         method: 'GET',
       }).then((response) => {
-        genre = response;
+        console.log(response);
         //console.log(genre.data.genres)
       });
     }
 
-
-    
       getData();
       getSearch();
       convertUserInput();
@@ -78,8 +76,6 @@ console.log("hi")
         genreSearch
         
       };
-      console.log(searchTest);
-
 
   }
   angular.module("app").factory("MovieService", ["$http", MovieService]);
