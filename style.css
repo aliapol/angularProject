@@ -14,6 +14,8 @@ body {
     border: 1pt solid #F75A96;
     width: 30%;
     display: flex;
+    position: relative;
+    
 }
 
 p {
@@ -31,5 +33,19 @@ h1 {
 
 .movieinfo {
     width: 50%;
+}
+
+.material-icons {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    
+}
+
+.info {
+    position: absolute;
+    bottom: 2px;
+    right: 32px;
+    
 }
 
