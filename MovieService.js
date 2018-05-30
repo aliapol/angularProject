@@ -1,6 +1,7 @@
 "use strict";
 
 let api_key = config.api_key;
+let base_url = 'https://api.themoviedb.org/3/';
 console.log("hi")
 
 

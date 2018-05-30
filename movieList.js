@@ -3,6 +3,7 @@
 const movieList = {
   template: `
   <h1>Name</h1>
+  <input type="text" placeholder="search">
     <section ng-repeat="movie in $ctrl.movies">
      <p> {{movie}} </p>
     </section>
