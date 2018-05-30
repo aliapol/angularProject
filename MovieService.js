@@ -17,7 +17,7 @@ console.log("hi")
         method: 'GET',
       }).then((response) => {
         ourData = response;
-        console.log(ourData)
+        //console.log(ourData)
 
         return response;
       }).catch((error) => {
@@ -31,7 +31,7 @@ console.log("hi")
         method: 'GET',
       }).then((response) => {
         searchTest = response;
-        console.log(searchTest);
+        //console.log(searchTest);
 
         return response;
       }).catch((error) => {
@@ -39,28 +39,43 @@ console.log("hi")
       }); 
     } 
 
-    const getGenre = () => {
+    const convertUserInput = (genre) => {
+      console.log(genre)
+      return $http ({
+        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US',
+        method: 'GET',
+      }).then((response) => {
+        let genreList = response.data.genres;
+        for(let i = 0; i < genreList.length; i++) {
+          if (genre === genreList[i].name) {
+            console.log(genreList[i].id)
+          }
+
+        }
+      });
+    }
+
+    const genreSearch = () => {
       return $http ({
         url: 'https://api.themoviedb.org/3/genre/movie/list?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US',
         method: 'GET',
       }).then((response) => {
         genre = response;
-        console.log(genre.data.genres)
+        //console.log(genre.data.genres)
       });
-
-
-      }
+    }
 
 
     
       getData();
       getSearch();
-      getGenre();
+      convertUserInput();
 
       return {
         getData,
         getSearch,
-        getGenre
+        convertUserInput,
+        genreSearch
         
       };
       console.log(searchTest);
@@ -71,3 +86,19 @@ console.log("hi")
 
   //search
   // two api calls, search genre, take id and put in movie search
+
+
+  /*
+  For matching genre: 1. take user input, convert to the genre_id, store in variable 2. run 
+
+
+
+
+
+
+
+
+
+
+
+  */
