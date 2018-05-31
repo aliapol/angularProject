@@ -10,6 +10,7 @@ let base_url = 'https://api.themoviedb.org/3/';
     let ourAvg = {};
     let ourGenre = {}; 
     let convertedGenreId;
+    let watchList = [];
  
     //getData is accessing popular movies from the api & we are using in our movielist component
     const getData = () => {
@@ -80,17 +81,32 @@ let base_url = 'https://api.themoviedb.org/3/';
         console.log(response);
         return response; 
       })
-
-   
     }
+    const addToList = (movie) => {
+    
+        watchList.push(movie);
+        //console.log(watchList);
+    }
+    const sendList = () => {
+      console.log(watchList);
+      return watchList;
+    }
+
+    const removeFromList = (movie) => {
+      watchList.splice(movie, 1);
+      return watchList;
+    }
+
 
       return {
         getData,
         getSearch,
         convertUserInput,
         genreSearch,
-        voteSearch
-        
+        voteSearch,
+        addToList,
+        sendList,
+        removeFromList
       };
 
   }

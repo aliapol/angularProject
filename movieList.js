@@ -11,18 +11,31 @@ const movieList = {
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
           <i class="material-icons info">info</i>
-          <i class="material-icons off">visibility_off</i>
-          <i class="material-icons on">visibility</i>
+          <i class="material-icons off" ng-click="$ctrl.watchListArray(movie);">visibility_off</i>
+          
         </div>
       </section>
     </section>
   `,
+
+  //<i class="material-icons on">visibility</i>
+
   controller: ["MovieService", function(MovieService) {
     const vm = this; 
+    
 
     vm.movies = MovieService.getData(); 
-    // console.log(vm.movies); 
+    console.log(vm.movies); 
+    vm.watchListArray = function(movie) {
+        MovieService.addToList(movie)
+        console.log(movie);
+      };
+        
+    
+
   }]
+
+  
   
 
 };
