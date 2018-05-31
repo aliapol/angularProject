@@ -66,14 +66,17 @@ button {
     background-color: white;
 }
 
-#popup {
+.popup {
     background-color: white;
     color: black;
     width: 500px; 
     min-height: 500px;
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-#popup h2 {
+.popup h2 {
     color: black;   
 }

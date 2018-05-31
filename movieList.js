@@ -14,7 +14,7 @@ const movieList = {
         </div>
       </section>
 
-      <section id="popup" ng-show="$ctrl.show" >
+      <section class="popup" ng-show="$ctrl.show" >
         <p ng-click="$ctrl.closePopup();">X</p>
         <div class="movieinfo">
           <h3> {{$ctrl.title}}</h3>
