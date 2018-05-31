@@ -8,5 +8,8 @@ angular
   })
   .when("/watchlistpage", {
     template: "<watchlist-page></watchlist-page>"
-  }).otherwise({redirectTo: "/movielist"});
+  }).when("/search", {
+    template:"<search-criteria></search-criteria>"
+  })
+  .otherwise({redirectTo: "/movielist"});
 });
