@@ -8,6 +8,7 @@ let base_url = 'https://api.themoviedb.org/3/';
     let searchTest = {};
     let genre = {};
     let ourAvg = {};
+    let ourGenre = {}; 
     let convertedGenreId;
  
     const getData = () => {
@@ -24,9 +25,9 @@ let base_url = 'https://api.themoviedb.org/3/';
       });
     }
 
-    const getSearch = () => {
+    const getSearch = (title) => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&language=en-US&query=drama&page=1&include_adult=false',
+        url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&language=en-US&query='+ title +'&page=1&include_adult=false',
         method: 'GET',
       }).then((response) => {
         searchTest = response;
@@ -50,17 +51,19 @@ let base_url = 'https://api.themoviedb.org/3/';
           }
         }
         //convertedGenreId returns number associated with name from input
-        // console.log(convertedGenreId);
+        console.log(convertedGenreId);
 
       });
     }
 
-    const genreSearch = () => {
+    const genreSearch = (genre) => {
       return $http ({
         url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + convertedGenreId,
         method: 'GET',
       }).then((response) => {
-        // console.log(response);
+        ourGenre = response; 
+        console.log(response); 
+        return response
       });
     }
 
