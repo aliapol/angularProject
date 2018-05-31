@@ -50,24 +50,25 @@ console.log("hi")
           if (genre === genreList[i].name) {
             genreID = genreList[i].id;
           }
-
         }
+        console.log(genreID);
+
       });
     }
 
     const genreSearch = () => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/genre/'+ genreID +'/movies?api_key='+ api_key +'&language=en-US&include_adult=false&sort_by=created_at.asc',
+        url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + genreID,
         method: 'GET',
       }).then((response) => {
         console.log(response);
-        //console.log(genre.data.genres)
       });
     }
 
       getData();
       getSearch();
       convertUserInput();
+      genreSearch();
 
       return {
         getData,

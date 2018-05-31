@@ -3,7 +3,7 @@
 const searchCriteria = {
   template: `
   <input type="text" placeholder="search by genre" ng-model="$ctrl.userInput" >
-  <button ng-click="$ctrl.getGenre($ctrl.userInput); $ctrl.genreSearch();">Submit</button>
+  <button ng-click="$ctrl.getGenre($ctrl.userInput); $ctrl.genreId();">Submit</button>
   `,
   controller: ["MovieService", function(MovieService) {
     const vm = this;
