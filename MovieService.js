@@ -11,6 +11,7 @@ let base_url = 'https://api.themoviedb.org/3/';
     let ourGenre = {}; 
     let convertedGenreId;
  
+    //getData is accessing popular movies from the api & we are using in our movielist component
     const getData = () => {
       return $http ({
         url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&language=en-US&page=1',
@@ -18,13 +19,13 @@ let base_url = 'https://api.themoviedb.org/3/';
       }).then((response) => {
         ourData = response;
         //console.log(ourData)
-
         return response;
       }).catch((error) => {
         console.log(error);
       });
     }
 
+    //getSearch is accessing search by title from our api - we are using it in our searchCriteria component
     const getSearch = (title) => {
       return $http ({
         url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&language=en-US&query='+ title +'&page=1&include_adult=false',
@@ -32,13 +33,14 @@ let base_url = 'https://api.themoviedb.org/3/';
       }).then((response) => {
         searchTest = response;
         //console.log(searchTest);
-
         return response;
       }).catch((error) => {
         console.log(error);
       }); 
     } 
 
+    //convertUserInput takes the string from the userInput and loops
+    //through the genreArray to access genrename then converts it to a number(genre_id)
     const convertUserInput = (genre) => {
       return $http ({
         url: 'https://api.themoviedb.org/3/genre/movie/list?api_key='+ api_key +'&language=en-US',
@@ -51,11 +53,12 @@ let base_url = 'https://api.themoviedb.org/3/';
           }
         }
         //convertedGenreId returns number associated with name from input
-        console.log(convertedGenreId);
+        // console.log(convertedGenreId);
 
       });
     }
 
+    //Function to add convertedGenreId to genreSearch end point and access movies with the specific genre
     const genreSearch = (genre) => {
       return $http ({
         url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + convertedGenreId,
@@ -67,6 +70,7 @@ let base_url = 'https://api.themoviedb.org/3/';
       });
     }
 
+    //voteSearch function is used to take user input and access movies with ratings greater than or equal to from the end point
     const voteSearch = (avg) => {
       return $http ({
         url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte='+avg,
