@@ -23,13 +23,17 @@ const movieList = {
   controller: ["MovieService", function(MovieService) {
     const vm = this; 
     
-
+//popular movie list
     vm.movies = MovieService.getData(); 
     console.log(vm.movies); 
+
+//takes movies from our Movie List and sends to service where they get added to the array
     vm.watchListArray = function(movie) {
         MovieService.addToList(movie)
         console.log(movie);
       };
+
+    
         
     
 

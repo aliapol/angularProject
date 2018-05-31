@@ -10,7 +10,7 @@ const watchlistPage = {
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
           <i class="material-icons info">info</i>
-          <i class="material-icons off" ng-click="$ctrl.deleteMovie(movie);">visibility_off</i>
+          <i class="material-icons on" ng-click="$ctrl.deleteMovie(movie);">visibility</i>
           
         </div>
       </section>
@@ -21,10 +21,11 @@ const watchlistPage = {
 
   controller: ["MovieService", function(MovieService) {
     const vm = this;
-
+//gets watch list array from our service when a movie has been added
     vm.list = MovieService.sendList();
     console.log(vm.list);
 
+//gets watch list array from our service after a movie has been delete
     vm.deleteMovie = function(movie) {
       MovieService.removeFromList(movie)
       console.log(movie);

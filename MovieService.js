@@ -82,16 +82,21 @@ let base_url = 'https://api.themoviedb.org/3/';
         return response; 
       })
     }
+
+    //function to push movies into our Watch List array
     const addToList = (movie) => {
     
         watchList.push(movie);
         //console.log(watchList);
     }
+
+    //function to send watch list array to the watch list page
     const sendList = () => {
       console.log(watchList);
       return watchList;
     }
 
+    //function to remove movies from our watch list page
     const removeFromList = (movie) => {
       watchList.splice(movie, 1);
       return watchList;
