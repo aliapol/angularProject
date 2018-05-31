@@ -2,17 +2,14 @@
 
 let api_key = config.api_key;
 let base_url = 'https://api.themoviedb.org/3/';
-let vote_avg = 9;
-console.log("hi")
-
 
   function MovieService ($http) {
     let ourData= {};
     let searchTest = {};
     let genre = {};
-    let convertedGenreId; 
-
-
+    let ourAvg = {};
+    let convertedGenreId;
+ 
     const getData = () => {
       return $http ({
         url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&language=en-US&page=1',
@@ -52,7 +49,8 @@ console.log("hi")
             convertedGenreId = genreList[i].id;
           }
         }
-        console.log(convertedGenreId);
+        //convertedGenreId returns number associated with name from input
+        // console.log(convertedGenreId);
 
       });
     }
@@ -62,26 +60,22 @@ console.log("hi")
         url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + convertedGenreId,
         method: 'GET',
       }).then((response) => {
-        console.log(response);
+        // console.log(response);
       });
     }
 
     const voteSearch = (avg) => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte=' + vote_avg,
+        url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte='+avg,
         method: 'GET',
       }).then((response) => {
+        ourAvg = response; 
         console.log(response);
+        return response; 
       })
 
-
+   
     }
-
-      getData();
-      getSearch();
-      convertUserInput();
-      genreSearch();
-      voteSearch();
 
       return {
         getData,
