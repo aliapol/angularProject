@@ -65,3 +65,15 @@ h1 {
 button {
     background-color: white;
 }
+
+#popup {
+    background-color: white;
+    color: black;
+    width: 500px; 
+    min-height: 500px;
+    position: fixed;
+}
+
+#popup h2 {
+    color: black;   
+}
