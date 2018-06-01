@@ -8,8 +8,7 @@ const watchlistPage = {
         <div class="movieinfo">
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
-          <i class="material-icons info" ng-click="$ctrl.showPopup(movie);">info</i>
-          <i class="material-icons on" ng-click="$ctrl.deleteMovie(movie);">visibility</i>
+          <i class="material-icons" ng-click="$ctrl.deleteMovie(movie);">delete_outline</i>
           
         </div>
       </section>
@@ -17,12 +16,12 @@ const watchlistPage = {
     
     <section class="popup" ng-show="$ctrl.show" >
       <p ng-click="$ctrl.closePopup();">X</p>
-      <div class="movieinfo">
-        <h3> {{$ctrl.title}}</h3>
-        <h3> {{$ctrl.overview}} </h3>
+      <div class="movieinfo-popup">
+        <h1> {{$ctrl.title}}</h1>
         <h3> Rating: {{$ctrl.vote_average}}</h3>
         <h3> Number of votes: {{$ctrl.vote_count}}</h3>
         <h3> Release date: {{$ctrl.release_date}}</h3>
+        <p> {{$ctrl.overview}} </p>
 
 
       </div>

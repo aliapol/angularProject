@@ -2,6 +2,7 @@
 
 const movieList = {
   template: `
+  <h1 class="popular">Popular Movies</h1>
     <section id="movielist">
       <section id="moviebox" ng-repeat="movie in $ctrl.movies.$$state.value.data.results">
         <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{movie.poster_path}}"> 
@@ -9,19 +10,19 @@ const movieList = {
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
           <i class="material-icons info more-info" ng-click="$ctrl.showPopup(movie);">info</i>
-          <i class="material-icons on list-add" ng-class="{'red' : toggle}" ng-click="$ctrl.watchListArray(movie); toggle = !toggle">visibility</i>
+          <i class="material-icons on list-add" ng-class="{'watchlist' : toggle}" ng-click="$ctrl.watchListArray(movie); toggle = !toggle">visibility</i>
           
         </div>
       </section>
 
       <section class="popup" ng-show="$ctrl.show" >
         <p ng-click="$ctrl.closePopup();">X</p>
-        <div class="movieinfo">
-          <h3> {{$ctrl.title}}</h3>
-          <h3> {{$ctrl.overview}} </h3>
+        <div class="movieinfo-popup">
+          <h1> {{$ctrl.title}}</h1>
           <h3> Rating: {{$ctrl.vote_average}}</h3>
           <h3> Number of votes: {{$ctrl.vote_count}}</h3>
           <h3> Release date: {{$ctrl.release_date}}</h3>
+          <p> {{$ctrl.overview}} </p>
 
 
         </div>
