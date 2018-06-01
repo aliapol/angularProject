@@ -10,8 +10,7 @@ const movieList = {
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
           <i class="material-icons info more-info" ng-click="$ctrl.showPopup(movie);">info</i>
-          <i class="material-icons on list-add" ng-class="{'watchlist' : toggle}" ng-click="$ctrl.watchListArray(movie); toggle = !toggle">visibility</i>
-          
+          <i class="material-icons on list-add" ng-class="{'watchlist' : toggle}" ng-click="$ctrl.watchListArray(movie); toggle = !toggle">visibility</i>        
         </div>
       </section>
 
@@ -23,27 +22,20 @@ const movieList = {
           <h3> Number of votes: {{$ctrl.vote_count}}</h3>
           <h3> Release date: {{$ctrl.release_date}}</h3>
           <p> {{$ctrl.overview}} </p>
-
-
         </div>
       </section>
-    
     </section>
   `,
-
-  //<i class="material-icons on">visibility</i>
 
   controller: ["MovieService", function(MovieService) {
     const vm = this; 
     
 //popular movie list
     vm.movies = MovieService.getData(); 
-    console.log(vm.movies); 
 
 //takes movies from our Movie List and sends to service where they get added to the array
     vm.watchListArray = function(movie) {
         MovieService.addToList(movie)
-        console.log(movie);
       };
 
     vm.showPopup = (movie) => {
@@ -53,29 +45,16 @@ const movieList = {
         vm.vote_average = movie.vote_average;
         vm.vote_count = movie.vote_count;
         vm.release_date = movie.release_date;
-
-
-        console.log(movie.title);
     };
+
     vm.closePopup = () => {
         vm.show = false;
-    };
-
- 
-
-
-      
-      
-
+    }; 
   }]
-
-  
-  
-
 };
 
 angular.module("app")
-  .component("movieList", movieList)
+  .component("movieList", movieList);
 
 
 

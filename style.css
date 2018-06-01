@@ -81,6 +81,15 @@ p {
     margin-top: 10px; 
 }
 
+.material-icons.search {
+    right: 85px;
+    top: 2px; 
+}
+
+.material-icons.watch {
+    right: 220px; 
+    top: 2px; 
+}
 
 
 .material-icons {
@@ -187,24 +196,13 @@ input {
     color: white;
 }
 
-#search_title {
+#search_title, #search_avg {
     display: flex;
     width: 60%;
     margin: 20px auto;
     border: 2pt solid #FFCA93;
-
-
 }
 
-#search_rating {
-    display: flex;
-    width: 30%;
-    margin: 50px auto;
-    border: 2pt solid #FFCA93;
-
-
-
-}
 
 .nav {
     display: flex;
@@ -218,8 +216,16 @@ a {
     text-decoration: none;
     padding: 15px;
     font-size: 125%;
-    
 }
+
+.search-headline, .watchlist-headline, .watchlist-empty {
+    margin-top: 20px; 
+    text-align: center;
+    margin-bottom: 10px;
+    color: #6FD1F2;
+    font-size: 200%;
+}
+
 
 
 

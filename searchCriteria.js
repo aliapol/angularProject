@@ -14,6 +14,7 @@ const searchCriteria = {
       </div>
     </section>
 
+    <div class="search-headline">Can't find the movie you're looking for? Try searching by title or rating!</div>
 
     <section id="search_title" ng-repeat="title in $ctrl.title.data.results">
         <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{title.poster_path}}"> 
@@ -41,20 +42,17 @@ const searchCriteria = {
     vm.searchAvg = function (avgResult) {
       MovieService.voteSearch(avgResult).then((avgArray)=>{
         vm.avg = avgArray; 
-        console.log(vm.avg); 
       })
     }
 
     vm.searchTitle = function (userTitle) {
       MovieService.getSearch(userTitle).then((titleArray)=>{
         vm.title = titleArray;
-        console.log(vm.title); 
       })
     }
 
     vm.watchListArray = function(movie) {
       MovieService.addToList(movie)
-      console.log(movie);
     };
 
   }]
@@ -64,19 +62,4 @@ const searchCriteria = {
 angular.module("app")
   .component("searchCriteria", searchCriteria)
 
-  /* <h2>Search by Genre</h2>
-  <input type="text" placeholder="search by genre" ng-model="$ctrl.userInput" >
-  <button ng-click="$ctrl.getGenre($ctrl.userInput); $ctrl.genreId($ctrl.genreResult);">Submit</button> */
-
- /* vm.getGenre = function (userInput) {
-    MovieService.convertUserInput(userInput); 
-    //Returns a string
-  }
-
-  vm.genreId = function (genreResult) {
-    MovieService.genreSearch(genreResult).then((genreArray)=>{
-      vm.genre = genreArray;
-      console.log(vm.genre);
-    });
-  } */
 

@@ -1,7 +1,6 @@
 "use strict";
 
 let api_key = config.api_key;
-let base_url = 'https://api.themoviedb.org/3/';
 
   function MovieService ($http) {
     let ourData= {};
@@ -40,37 +39,6 @@ let base_url = 'https://api.themoviedb.org/3/';
       }); 
     } 
 
-    //convertUserInput takes the string from the userInput and loops
-    //through the genreArray to access genrename then converts it to a number(genre_id)
-    const convertUserInput = (genre) => {
-      return $http ({
-        url: 'https://api.themoviedb.org/3/genre/movie/list?api_key='+ api_key +'&language=en-US',
-        method: 'GET',
-      }).then((response) => {
-        let genreList = response.data.genres;
-        for(let i = 0; i < genreList.length; i++) {
-          if (genre === genreList[i].name) {
-            convertedGenreId = genreList[i].id;
-          }
-        }
-        //convertedGenreId returns number associated with name from input
-        // console.log(convertedGenreId);
-
-      });
-    }
-
-    //Function to add convertedGenreId to genreSearch end point and access movies with the specific genre
-    const genreSearch = (genre) => {
-      return $http ({
-        url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=' + convertedGenreId,
-        method: 'GET',
-      }).then((response) => {
-        ourGenre = response; 
-        console.log(response); 
-        return response
-      });
-    }
-
     //voteSearch function is used to take user input and access movies with ratings greater than or equal to from the end point
     const voteSearch = (avg) => {
       return $http ({
@@ -78,21 +46,17 @@ let base_url = 'https://api.themoviedb.org/3/';
         method: 'GET',
       }).then((response) => {
         ourAvg = response; 
-        console.log(response);
         return response; 
       })
     }
 
     //function to push movies into our Watch List array
     const addToList = (movie) => {
-    
         watchList.push(movie);
-        //console.log(watchList);
     }
 
     //function to send watch list array to the watch list page
     const sendList = () => {
-      console.log(watchList);
       return watchList;
     }
 
@@ -102,12 +66,9 @@ let base_url = 'https://api.themoviedb.org/3/';
       return watchList;
     }
 
-
       return {
         getData,
         getSearch,
-        convertUserInput,
-        genreSearch,
         voteSearch,
         addToList,
         sendList,
@@ -116,22 +77,3 @@ let base_url = 'https://api.themoviedb.org/3/';
 
   }
   angular.module("app").factory("MovieService", ["$http", MovieService]);
-
-  //search
-  // two api calls, search genre, take id and put in movie search
-
-
-  /*
-  For matching genre: 1. take user input, convert to the genre_id, store in variable 2. run 
-
-
-
-
-
-
-
-
-
-
-
-  */
