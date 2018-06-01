@@ -4,6 +4,14 @@
 
 }
 
+.title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 500%;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
 body {
     background-color: black;
     color: white;
@@ -18,6 +26,7 @@ body {
 
 #moviebox {
     border: 2pt solid #F75A96;
+    border-radius: 8px;
     width: 30%;
     display: flex;
     position: relative;
@@ -69,8 +78,8 @@ p {
 }
 
 .popup {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     width: 500px; 
     min-height: 500px;
     position: fixed;
@@ -166,6 +175,21 @@ input {
 
 
 
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+a {
+    font-family: 'Luckiest Guy', cursive;
+    color: #FFCA93;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 125%;
+    
 }
 
 
