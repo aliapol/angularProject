@@ -1,47 +1,42 @@
 "use strict";
-
-
-
 const searchCriteria = {
 
   template: `
-    <h2>Search by Title</h2>
-    <input type="text" placeholder="search by title" ng-model="$ctrl.userTitle">
-    <button ng-click="$ctrl.searchTitle($ctrl.userTitle)">Submit</button>
+    <section class="search-fields">
+      <div class="search-title">
+        <input type="text" placeholder="Search by Title" ng-model="$ctrl.userTitle">
+        <button ng-click="$ctrl.searchTitle($ctrl.userTitle)">Submit</button>
+      </div>
 
-
-
-    <h2>Search by Rating</h2>
-    <input type="text" placeholder="search by rating" ng-model="$ctrl.avgResult" >
-    <button ng-click="$ctrl.searchAvg($ctrl.avgResult);">Submit</button>
-
-
-    <section id="search_title" ng-repeat="title in $ctrl.title.data.results">
-    <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{title.poster_path}}"> 
-      <div class="movieinfo">
-        <h2> {{title.title}} </h2>
-        <p> {{title.vote_average}} </p>
-        <p> {{title.overview}} </p>
-        <i class="material-icons info more-info" ng-click="$ctrl.showPopup(movie);">info</i>
-        <i class="material-icons off list-add" ng-click="$ctrl.watchListArray(movie);">visibility_off</i>
+      <div class="search-rating">
+        <input type="text" placeholder="Search by Rating[1-10]" ng-model="$ctrl.avgResult" >
+        <button ng-click="$ctrl.searchAvg($ctrl.avgResult);">Submit</button>
       </div>
     </section>
 
+
+    <section id="search_title" ng-repeat="title in $ctrl.title.data.results">
+        <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{title.poster_path}}"> 
+        <div class="movieinfo">
+          <h2> {{title.title}} </h2>
+          <p> Rating: {{title.vote_average}} </p>
+          <p> {{title.overview}} </p>
+        </div>
+    </section>
+
     <section id="search_avg" ng-repeat="average in $ctrl.avg.data.results">
-    <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{average.poster_path}}"> 
-    <div class="movieinfo">
-      <h2> {{average.title}} </h2>
-      <p> {{average.vote_average}} </p>
-      <p> {{average.overview}} </p>
-    </div>
+      <img class="poster" ng-src=" https://image.tmdb.org/t/p/w185/{{average.poster_path}}"> 
+      <div class="movieinfo">
+        <h2> {{average.title}} </h2>
+        <p> Rating: {{average.vote_average}} </p>
+        <p> {{average.overview}} </p>
+      </div>
     </section>
   `,
   controller: ["MovieService", function(MovieService) {
     const vm = this;
 
     vm.movies = MovieService.getData(); 
-
-
 
     vm.searchAvg = function (avgResult) {
       MovieService.voteSearch(avgResult).then((avgArray)=>{
@@ -61,9 +56,6 @@ const searchCriteria = {
       MovieService.addToList(movie)
       console.log(movie);
     };
-
-
-
 
   }]
 

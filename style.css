@@ -1,3 +1,9 @@
+*{
+    margin: 0; 
+    font-family: 'Fjalla One', sans-serif;
+
+}
+
 body {
     background-color: black;
     color: white;
@@ -35,10 +41,6 @@ p {
     font-family: 'Average', serif;
 }
 
-h1 {
-    font-family: 'Fjalla One', sans-serif;
-}
-
 .poster {
     width: 50%;
     height: 400px;
@@ -46,6 +48,11 @@ h1 {
 
 .movieinfo {
     width: 50%;
+    margin: 15px; 
+}
+
+.movieinfo p {
+    margin-top: 10px; 
 }
 
 .material-icons {
@@ -59,11 +66,6 @@ h1 {
     position: absolute;
     bottom: 2px;
     right: 32px;
-    
-}
-
-button {
-    background-color: white;
 }
 
 .popup {
@@ -93,7 +95,78 @@ button {
     color:red;
 }
 
-.blue {
-    background-color:blue;
+.search-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+.search-title {
+    color: #F75A96;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin: 5px; 
+}
+
+.search-title input {
+    background-color: #F75A96; 
+    margin: 5px; 
+}
+
+.search-rating {
+    color: #FFCA93; 
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+
+.search-rating input {
+    background-color: #ADCE9E;
+    margin: 5px;     
+}
+
+button {
+    background-color: #6FD1F2; 
+    border-radius: 5px; 
+    height: 30px;
+    width: 75px;
+    color: white;
+    font-size: 15px; 
+}
+
+input {
+    border-radius: 5px; 
+    height: 30px;
+    width: 200px; 
+    border: 0px;
+    color: white;
+    font-size: 15px; 
+}
+
+::placeholder{
+    color: white;
+}
+
+#search_title {
+    display: flex;
+    width: 60%;
+    margin: 20px auto;
+    border: 2pt solid #FFCA93;
+
+
+}
+
+#search_rating {
+    display: flex;
+    width: 30%;
+    margin: 50px auto;
+    border: 2pt solid #FFCA93;
+
+
+
+}
+
+
 
