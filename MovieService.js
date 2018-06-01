@@ -14,7 +14,7 @@ let api_key = config.api_key;
     //getData is accessing popular movies from the api & we are using in our movielist component
     const getData = () => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/movie/popular?api_key=' + api_key + '&language=en-US&page=1',
+        url: 'https://api.themoviedb.org/3/movie/popular?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US&page=1',
         method: 'GET',
       }).then((response) => {
         ourData = response;
@@ -28,7 +28,7 @@ let api_key = config.api_key;
     //getSearch is accessing search by title from our api - we are using it in our searchCriteria component
     const getSearch = (title) => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&language=en-US&query='+ title +'&page=1&include_adult=false',
+        url: 'https://api.themoviedb.org/3/search/movie?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US&query='+ title +'&page=1&include_adult=false',
         method: 'GET',
       }).then((response) => {
         searchTest = response;
@@ -42,7 +42,7 @@ let api_key = config.api_key;
     //voteSearch function is used to take user input and access movies with ratings greater than or equal to from the end point
     const voteSearch = (avg) => {
       return $http ({
-        url: 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte='+avg,
+        url: 'https://api.themoviedb.org/3/discover/movie?api_key=5ef10bf9bb7e92fc931342bdaf0139fb&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_average.gte='+avg,
         method: 'GET',
       }).then((response) => {
         ourAvg = response; 
