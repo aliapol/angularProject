@@ -80,3 +80,20 @@ button {
 .popup h2 {
     color: black;   
 }
+
+.more-info:hover {
+    cursor: pointer;
+}
+
+.list-add:hover {
+    cursor: pointer;
+}
+
+.red {
+    color:red;
+}
+
+.blue {
+    background-color:blue;
+}
+

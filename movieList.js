@@ -8,8 +8,8 @@ const movieList = {
         <div class="movieinfo">
           <h1> {{movie.title}} </h1>
           <p> {{movie.overview}} </p>
-          <i class="material-icons info" ng-click="$ctrl.showPopup(movie);">info</i>
-          <i class="material-icons off" ng-click="$ctrl.watchListArray(movie);">visibility_off</i>
+          <i class="material-icons info more-info" ng-click="$ctrl.showPopup(movie);">info</i>
+          <i class="material-icons on list-add" ng-class="{'red' : toggle}" ng-click="$ctrl.watchListArray(movie); toggle = !toggle">visibility</i>
           
         </div>
       </section>
@@ -59,6 +59,10 @@ const movieList = {
     vm.closePopup = () => {
         vm.show = false;
     };
+
+ 
+
+
       
       
 
@@ -71,3 +75,6 @@ const movieList = {
 
 angular.module("app")
   .component("movieList", movieList)
+
+
+

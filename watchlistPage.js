@@ -42,23 +42,7 @@ const watchlistPage = {
     vm.deleteMovie = function(movie) {
       MovieService.removeFromList(movie)
       console.log(movie);
-    };
-
-    vm.showPopup = (movie) => {
-      vm.show = true;
-      vm.title = movie.title;
-      vm.overview = movie.overview;
-      vm.vote_average = movie.vote_average;
-      vm.vote_count = movie.vote_count;
-      vm.release_date = movie.release_date;
-
-
-      console.log("hi");
-    };
-    vm.closePopup = () => {
-      vm.show = false;
-    };
-    
+    };    
   }]
 
 };
