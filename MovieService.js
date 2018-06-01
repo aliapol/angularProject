@@ -1,6 +1,6 @@
 "use strict";
 
-let api_key = config.api_key;
+// let api_key = config.api_key;
 
   function MovieService ($http) {
     let ourData= {};
